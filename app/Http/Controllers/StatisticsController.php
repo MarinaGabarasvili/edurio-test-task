@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Services\StatisticsService;
 use Illuminate\Http\JsonResponse;
+use function Symfony\Component\Translation\t;
 
 class StatisticsController extends Controller
 {
@@ -26,6 +27,8 @@ class StatisticsController extends Controller
             $results = $this->service->getQuestionCount($id);
         } else if($slug === 'option-count'){
             $results = $this->service->getAnswersPerAnswerOption($id);
+        } else{
+            return abort(404);
         }
 
         return response()->json($results);

@@ -6,6 +6,8 @@ use App\Models\Survey;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use InvalidArgumentException;
+use Whoops\Exception\ErrorException;
 
 class SurveyService
 {
@@ -68,7 +70,7 @@ class SurveyService
             if(in_array((int)$answer['answer_option_id'], $question->options->pluck('id')->toArray())){
                 $item['answer_option_id'] = (int)$answer['answer_option_id'];
             } else {
-                throw new ModelNotFoundException("The option not corresponding to question");
+                throw new InvalidArgumentException("The option not corresponding to question");
             }
 
         }
