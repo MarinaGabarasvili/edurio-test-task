@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Survey;
+use App\Services\SurveyService;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -11,7 +13,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->bind(SurveyService::class, function () {
+            return new SurveyService($this->app->make(Survey::class));
+        });
     }
 
     /**
