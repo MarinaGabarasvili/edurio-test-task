@@ -42,13 +42,25 @@ class StatisticsService
 
         $questions->map(function ($question) {
             if ($question['average']) {
-                $question['average'] = (($question['average'] - 0) / (4 - 0)) * (5 - 1) + 1;
+                $question['average'] = $this->adjustInterval($question['average']);
             }
 
             return $question;
         });
 
         return $questions;
+    }
+
+    private function adjustInterval($oldAverage):float
+    {
+        $oldMin = 0;
+        $oldMax = 4;
+        $newMin = 1;
+        $newMax = 5;
+        $newAverage = (($oldAverage - $oldMin) / ($oldMax - $oldMin)) * ($newMax - $newMin) + $newMin;
+        $formattedNewAverage = round($newAverage,1);
+
+        return $formattedNewAverage;
     }
 
     /**
