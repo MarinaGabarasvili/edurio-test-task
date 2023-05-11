@@ -5,7 +5,7 @@ Set up
 
 To get started, make sure you have [Docker installed](https://docs.docker.com) on your system, and then clone this repository.
 
-Next, navigate in your terminal to the directory you cloned this, and spin up the containers for the web server.
+Next, navigate in your terminal to the directory you cloned this, add .env file with all needed variables(example is in email), and spin up the containers for the web server.
 As project build with Laravel Sail, run this command:
 
 `docker run --rm \
@@ -18,8 +18,6 @@ composer install --ignore-platform-reqs`.
 Then run: `docker-compose build`.
 
 To run the service at the background run `docker-compose up -d`.
-
-Add .env file with all needed variables(example is in email).
 
 To run migrations run command `./vendor/bin/sail artisan migrate`.
 
