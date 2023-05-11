@@ -24,7 +24,7 @@ To run migrations run command `./vendor/bin/sail artisan migrate`.
 To seed tables run command `./vendor/bin/sail artisan db:seed`.
 
 In order to fill the survey and save the data you need to provide personal access token (sanctum authorization). To generate token register new user and return message will contain token you need to add as  as Authorization Bearer Token in Postman.  
-Data example:
+Data example for fill the survey POST request:
 ```json
 {
 "answers":[
