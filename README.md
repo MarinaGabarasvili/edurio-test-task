@@ -9,6 +9,8 @@ Next, navigate in your terminal to the directory you cloned this, and spin up th
 
 To run the service at the background run `docker-compose build`.
 
+Add .env file with all needed variables.
+
 To run migrations run command `./vendor/bin/sail artisan migrate`.
 
 To seed tables run command `./vendor/bin/sail artisan db:seed`.
